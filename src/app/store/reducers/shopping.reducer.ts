@@ -17,10 +17,13 @@ export function ShoppingReducer(
 ) {
     switch (action.type) {
         case ShoppingActionTypes.ADD_ITEM:
+            console.log(action.type, action.payload);
             return [...state, action.payload]; // retorna nova versão do estado
+        case ShoppingActionTypes.DELETE_ITEM:
+            console.log(action.type, action.payload);
+            return state.filter(item => item.id !== action.payload);
         default:
             return state;
-            
     }
 
 }

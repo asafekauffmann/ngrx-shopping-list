@@ -1,14 +1,25 @@
+import { AppState, shopping } from './store/models/app-state.model';
+
+import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppComponent } from './app.component';
+import { ShoppingReducer } from './store/reducers/shopping.reducer';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    StoreModule.forRoot({
+      shopping: ShoppingReducer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
